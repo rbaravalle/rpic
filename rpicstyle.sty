@@ -1,0 +1,162 @@
+% Estilo LaTeX ( rpicstyle.sty ) para
+%
+% XV Reunión de Trabajo en Procesamiento de la Información y Control
+%
+% Comisión Organizadora de la XV RPIC UNRN
+% Consultas: juanpablo.pascual@ing.unlp.edu.ar
+%
+% \documentclass[a4paper,10pt]{article}
+% \usepackage{rpicstyle}                  for LaTeX2e users
+%
+% Scientific Word or Scientific Workplace users copy this file to the following
+% subfolder into the SW or SWP instalation folder
+% \TCITeX\TeX\LaTeX\base
+%
+% For example: C:\swp40\TCITeX\TeX\LaTeX\base
+%
+% \begin{document}
+%
+% \title{...}
+% \author{...}
+% \affiliation{....}
+%
+% \maketitle
+%
+% \abstract
+% Your abstract here
+% \endabstract
+%
+% \keywords
+% Your keywords here
+% \endkeywords
+
+% \section{...}
+%  \subsection{...}
+%   \subsubsection{...}
+%
+% \section{...}
+% .
+% .
+% .
+% \begin{thebibliography}{99}
+% \bibitem{...}
+% \bibitem{...}
+%    .
+%    .
+%    .
+% \end{thebibliography}
+%
+%
+% \end{document}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  Set the margins
+
+%\thispagestyle{empty}
+
+\pagestyle{empty}
+\twocolumn \flushbottom  \sloppy
+\columnsep 5mm
+\textheight 245mm
+\textwidth 165mm
+\oddsidemargin -2.4mm
+\evensidemargin -5.4mm
+\topmargin -9.4mm
+\headheight 5mm
+\headsep 5mm
+\parindent 0.14in
+\footskip 0mm
+
+%Sectioning Commands
+
+\def\thesection {\arabic{section}}
+\def\thesubsection {\thesection.\arabic{subsection}}
+\def\thesubsubsection {\thesubsection.\arabic{subsubsection}}
+
+\def\section{ \@startsection {section}{1}{\z@}{-1.5ex plus
+    -0.5ex minus -.2ex}{1.0ex plus 0.3ex minus .2ex}{\normalsize\bf\centering}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.5ex plus
+    -0.2ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\bf\raggedright}}
+\def\subsubsection{\@startsection{subsubsection}{3}{\z@}{-1ex plus
+   -0.5ex minus -.2ex}{0.8ex plus .2ex}{\normalsize\it\raggedright}}
+
+%  Define the Title style
+
+\newcommand{\affiliation}[1]{\date{ #1}}
+
+\def\maketitle{\par
+ \begingroup
+ \def\thefootnote{\fnsymbol{footnote}}
+ \def\@makefnmark{\hbox
+ to 0pt{$^{\@thefnmark}$\hss}}
+ \twocolumn[\@maketitle]
+ \@thanks
+ \endgroup
+ \setcounter{footnote}{0}
+ \let\maketitle\relax
+ \let\@maketitle\relax
+
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+
+\def\@maketitle{%
+  \vskip 0mm
+{\hsize\textwidth
+ \linewidth\hsize \vfil \centering
+ {\Large \bf \@title \par}
+ \vskip 10mm
+ {\large \begin{tabular}[t]{c}\@author\end{tabular}\par}
+ \vskip 8mm
+ {\it \begin{tabular}[t]{c}\@date \end{tabular}\par}}
+\vspace*{10mm}
+}
+
+\def\copyrightspace{\footnotetext[0]{\mbox{}\vrule height 97pt width 0pt}}
+
+%% Modificado nuevamente con el head directamente para evitar que el usuario tenga que ponerlo en el archivo main
+%%%%% Se agregó para incluir el nombre de la reunión en el margen superior %%%%%
+\def\ps@rpictg{
+ \let\@mkboth\@gobbletwo
+ \def\@oddhead{\rightmark{\hfil \textit{XV Reuni\'{o}n de Trabajo en Procesamiento de la
+Informaci\'{o}n y Control, 16 al 20 de septiembre de 2013} \hfil}}%
+ \def\@evenhead{\leftmark{\@oddhead}}%
+ \def\@oddfoot{}%
+ \def\@evenfoot{}}
+\pagestyle{rpictg}
+
+
+%%%%% ... %%%%%
+
+%  Define the Abstract
+\def\abstract{\bf \mbox{{\boldmath $Abstract$}{\bf--- }}}
+\def\endabstract{\medskip\rm}%  Define the Abstract
+
+%  Definición de Resumen
+\def\resumen{\bf \mbox{{\boldmath $Resumen$}{\bf--- }}}
+\def\endresumen{\medskip\rm}%  Definición de Resumen
+
+%  Define de Keywords
+\def\keywords{ \bf\mbox{{\boldmath $Keywords$}{\bf--- }}}
+\def\endkeywords{\medskip\rm}
+
+%  Definición de Palabras Clave
+\def\palabras{ \bf\mbox{{\boldmath $Palabras\;Clave$}{\bf--- }}}
+\def\endpalabras{\medskip\rm}
+
+%%Definición de los ambientes tabla y tabla*
+
+ \newcounter{tabla}
+\renewcommand\thetabla{\@arabic\c@tabla}
+\def\fps@tabla{tbp}
+\def\ftype@tabla{2}
+\def\ext@tabla{lot}
+\def\fnum@tabla{\tablaname\nobreakspace\thetabla}
+\newenvironment{tabla}
+               {\@float{tabla}}
+               {\end@float}
+\newenvironment{tabla*}
+               {\@dblfloat{tabla}}
+               {\end@dblfloat}
+\let\l@tabla
+
+\newcommand\tablaname{Tabla}

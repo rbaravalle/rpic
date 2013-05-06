@@ -1,0 +1,72 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: baravallerpic.aux
+The style file: IEEEtran.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: bibliografia/bibliografia.bib
+You're missing a field name---line 333 of file bibliografia/bibliografia.bib
+ :   
+ :   %pages = {21 -- 26},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Repeated entry---line 478 of file bibliografia/bibliografia.bib
+ : @book{Mandelbrot83
+ :                   ,
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 492 of file bibliografia/bibliografia.bib
+ :     
+ :     TITLE = {Multifractal analysis application to the characterization of fatty infiltration in Iberian and White pork sirloins.},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty title in Serrano2012
+Warning--empty journal in Serrano2012
+Warning--empty year in Serrano2012
+Warning--empty journal in Peitgen2004
+Warning--empty year in Xu2006
+Warning--empty booktitle in Silvetti2010
+
+Done.
+You've used 19 entries,
+            4039 wiz_defined-function locations,
+            942 strings with 10882 characters,
+and the built_in function-call counts, 14485 in all, are:
+= -- 1122
+> -- 340
+< -- 126
++ -- 186
+- -- 55
+* -- 694
+:= -- 2084
+add.period$ -- 38
+call.type$ -- 19
+change.case$ -- 17
+chr.to.int$ -- 312
+cite$ -- 25
+duplicate$ -- 1040
+empty$ -- 1223
+format.name$ -- 71
+if$ -- 3369
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 175
+newline$ -- 80
+num.names$ -- 19
+pop$ -- 436
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1121
+stack$ -- 0
+substring$ -- 747
+swap$ -- 839
+text.length$ -- 22
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 19
+warning$ -- 6
+while$ -- 60
+width$ -- 21
+write$ -- 192
+(There were 3 error messages)
