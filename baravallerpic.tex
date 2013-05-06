@@ -149,7 +149,7 @@ where
 \label{eqn:eqn10}
 \end{equation}
 
-As previously stated, the $f(\alpha)$ spectrum (MFS) and the generalized dimensions $\beta(q)$ contains the same information, but in this work the first is employed, since it also outperforms the method of moments in classification tasks. Using equations \ref{eqn:eqn9} and \ref{eqn:eqn10} the MFS is estimated. The implementation is set with the default parameters (except for the number of FDs, since they are chosen based on its classification performance).
+As previously stated, the $f(\alpha)$ spectrum (MFS) and the generalized dimensions $\beta(q)$ contains the same information, but in this work the first is employed, since it also outperforms the method of moments in classification tasks. Using (\ref{eqn:eqn9}) and (\ref{eqn:eqn10}) the MFS is estimated. The implementation is set with the default parameters (except for the number of FDs, since they are chosen based on its classification performance).
 
 
 \subsubsection{Multifractal Measures}
@@ -162,7 +162,7 @@ Defining different $\mu$ functions counts for different image features. The firs
 
 where $\ast$ is the $2D$ convolution operator and $G_{r}$ is a Gaussian smoothing kernel with variance $r$, {\em i.e., } $\mu$ is the average intensity value in the disk of radius $r$ centered at $x$ ($B(x,r)$). This is the density of the intensity function, and it describes how the intensity at a point changes over scale.
 
-The definition of $\mu$ could serve to specific purposes. For instance, if robustness to illumination changes is needed, one choice is to define $\mu(B(x,r))$ on the energy of the gradients. Let ${ f_{k} , k = 1, 2, 3, 4}$ be four directional differential operators along the vertical, horizontal, diagonal and anti-diagonal directions. Then we define the measurement function $\mu(B(x,r))$ for the image $I$ as in Equation \ref{eqn:gradient}.
+The definition of $\mu$ could serve to specific purposes. For instance, if robustness to illumination changes is needed, one choice is to define $\mu(B(x,r))$ on the energy of the gradients. Let ${ f_{k} , k = 1, 2, 3, 4}$ be four directional differential operators along the vertical, horizontal, diagonal and anti-diagonal directions. Then we define the measurement function $\mu(B(x,r))$ for the image $I$ as in (\ref{eqn:gradient}).
 
 \begin{equation}
 \mu(B(x,r)) = (\int_{B(x,r)}{\sum_{k}{(f_{k} \ast (G_{r} \ast I))^{2}} dx)^{1/2}}.
