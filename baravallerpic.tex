@@ -190,11 +190,24 @@ $20$ images of four different commercial bread types ({\em sliced}, {\em baguett
 
 \section{RESULTS AND DISCUSSION}
 
+\subsection{Data Analysis}
 The MFS, using $20$ FDs, was applied for each of the $200$ images ({\em i.e.,} $40$ images of each bread type, and $40$ randomly selected nonbread images, getting $5$ balanced classes).
+
+Self-organizing maps (SOM)~\cite{Kohonen2001} of the vectorized images are useful to visualize these different representation of bread images into a lower dimensional view, in order to understand them better. A SOM maps high dimensional data into a (typically) two-dimensional representation, using neighborhood information. Topological information of the original data is preserved.  
+
+Unsupervised SOM of the multifractal representation of bread and non-bread images are shown in Fig.~\ref{fig:somfractal} in a grid of $10\times10$ cells. In the left image, the $5$ classes ({\emph e.g.}: {\emph baguette}, {\emph sliced}, {\emph bran}, {\em sandwich} and {\em nonbread}) are shown, while in the right image, the {\em nonbread} class has been removed, and then the SOM was recomputed for the remaining four classes, in order to ensure details among the MFS of the different bread types. The multifractal features SOM seems to show easily separable classes. It seems that a classifier could potentially obtain low classification errors using the multifractal features.
+\begin{figure*}
+\begin{centering}
+\includegraphics[width=0.45\textwidth]{images/sommultifractal}
+\includegraphics[width=0.45\textwidth]{images/sombreadmultifractal}
+\caption{SOM of the bread and non-bread images (left) and SOM of the bread types only (right). $1$: {\em baguette}, $2$: {\em sliced}, $3$: {\em bran}, $4$: {\em sandwich}, $5$: {\em nonbread} }
+\label{fig:somfractal}
+\end{centering}
+\end{figure*}
 
 \subsection{Bread Classification}
 \label{sec:10}
-Five classes are defined, {\emph e.g.}, {\emph baguette}, {\emph sliced}, {\emph bran}, {\emph sandwich} and {\emph non-bread}, assigning $40$ images to each class. A comparison is made between the MFS and state of the art features in the computer vision literature. This classification scheme corresponds to an intra-class problem, which is harder to solve than an ordinary inter-class one. 
+As previously stated, five classes are defined, {\em e.g.}, {\em baguette}, {\em sliced}, {\em bran}, {\em sandwich} and {\em non-bread}, assigning $40$ images to each class. A comparison is made between the MFS and state of the art features in the computer vision literature. This classification scheme corresponds to an intra-class problem, which is harder to solve than an ordinary inter-class one. 
 
 K-fold cross validation is applied to the entire set (with $K=4$), employing three different classifiers: Support Vector Machines (SVM), Random Forests (RF), and Nearest Neighbors (NN). Results show that the MFS presents good classification performance regardless of the classifier employed. The libsvm implementation \cite{Chang2011} was used for the SVM classifier (with RBF kernel). In the case of the RF ($100$ trees) and the NN ($1$ neighbor) classifiers, the scikit-learn python library was employed.
 
@@ -205,54 +218,76 @@ In Table \ref{tab:mfs}, several combinations of different MFS obtained from the 
 In Table \ref{tab:other}, state-of-the-art features (Haralick, Local Binary Pattern and SIFT features) are computed for the images. The best classification performance is obtained using the SIFT features, but a $128$ feature length vector is obtained per image, and, in addition, computational space and time is needed to build internal structures ({\em e.g.} a {\em codebook}). The classification performance of the MFS for the bread crumb database is the highest among the algorithms studied. The MFS captures robust and useful information for classification in low dimensional features. These results also agree with results obtained in \cite{Bosch2011} for the classification of other food products.
 
 \begin{table}
+\begin{center}
 % table caption is above the table
 \caption{classification results with different number of FDs for the MFS}
 \label{tab:number}       % Give a unique label
 % For LaTeX tables use
-\begin{tabular}{lllll}
-\hline\noalign{\smallskip}
-\#FDs & 10  & 20 & 30 \\
-\noalign{\smallskip}\hline\noalign{\smallskip}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
 SVM & \textbf{96\%} & 94.5\% & 95.5\% \\
+\hline
 RF  & 91.5\% & \textbf{93.5\%} & 93\% \\
+\hline
 NN & 88.5\% & \textbf{90.5\%} & 90\% \\
-\noalign{\smallskip}\hline
+\hline
+\hline
+\#FDs & 10  & 20 & 30 \\
+\hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
 \begin{table}
+\begin{center}
 % table caption is above the table
 \caption{classification results using different combinations of the MFS}
+
+
 \label{tab:mfs}       % Give a unique label
 % For LaTeX tables use
-\begin{tabular}{lllll}
-\hline\noalign{\smallskip}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
 Method & MFS & MFS+L & MFS+G & CIELab  \\
-\noalign{\smallskip}\hline\noalign{\smallskip}
+\hline
+\hline
 SVM & 94.5\% & 95.5\% & \textbf{97.5\%} & \textbf{97.5\%} \\
+\hline
 RF  & 93.5\% & \textbf{96\%} & 95\% & \textbf{96\%} \\
+\hline
 NN & 90.5\% & 90\% & 87\% & \textbf{92\%} \\
-\noalign{\smallskip}\hline
+\hline
+\hline
 \#FDs & 20 & 40 & 40 & 60 \\
+\hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
 \begin{table}
+\begin{center}
 % table caption is above the table
 \caption{classification results for different features}
 \label{tab:other}       % Give a unique label
 % For LaTeX tables use
-\begin{tabular}{llllll}
-\hline\noalign{\smallskip}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
 Method & Haralick & Lbp & SIFT\\ % & Zernicke
-\noalign{\smallskip}\hline\noalign{\smallskip}
+\hline
+\hline
 SVM & 94\% & 78.5\% & \textbf{96.5\%} \\ % & 55 
+\hline
 RF  & 91\% & 71.5\% & \textbf{92\%} \\ % & 58 
+\hline
 NN & 79\% & 70\% & \textbf{86\%} \\ % & 48.5 
-\noalign{\smallskip}\hline
+\hline
+\hline
+\#Features & 13 & 36 & 128 \\
+\hline
 \end{tabular}
+\end{center}
 \end{table}
 
 
