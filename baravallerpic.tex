@@ -92,7 +92,7 @@ The algorithm uses a binarized image and selects different values of $\epsilon$ 
 \begin{figure*}[htb]
 \centering
 $\vcenter{\hbox{\includegraphics[scale=1.8]{images/salvado19}}}$
-$\vcenter{\hbox{\includegraphics[scale = 0.4]{images/fitbox}}}$
+$\vcenter{\hbox{\includegraphics[scale = 0.4]{images/fitbox2}}}$
 \caption{An image and its computed box dimension}
 \label{fig:fitbox}
 \end{figure*}
@@ -221,7 +221,7 @@ In Table \ref{tab:number}, the classification performance of the method is teste
 
 In Table \ref{tab:mfs}, several combinations of different MFS obtained from the images, and their classification performance are shown. The MFS used in the study were the density of the intensity (MFS in the table), the Laplacian of the intensity (L), and the gradient of the intensity (G). In addition, another test is made, using the CIELab color space. The key advantage of this color space is that it tends to reduce the dependency of the resulting image color on the device used in the capture. The intensity of the images is transformed to the CIELab space, and the MFS of the three separated channels ({\em L}, {\em a}, and {\em b}) are combined together, obtaining a vector of $60$ FDs. This combination showed the best classification performance. It means that adding color information in the $a$ and $b$ channels is useful for better classification of different types of bread crumbs, when different capturing devices are used (in this case, a scanner and a digital camera).
 
-In Table \ref{tab:other}, state-of-the-art features (Haralick, Local Binary Pattern and SIFT features) are computed for the images. The Haralick and Local Binary Pattern features are computed using the {\em mahotas} python library\footnote{https://pypi.python.org/pypi/mahotas}. The best classification performance is obtained using the SIFT features, but a $128$ feature length vector is obtained per image, and, in addition, computational space and time is needed to build internal structures ({\em e.g.} a {\em codebook}). The classification performance of the MFS for the bread crumb database is the highest among the algorithms studied. The MFS captures robust and useful information for classification in low dimensional features. These results also agree with results obtained in \cite{Bosch2011} for the classification of other food products.
+In Table \ref{tab:other}, state-of-the-art features (Haralick, Local Binary Pattern and SIFT features) are computed for the images. The Haralick and Local Binary Pattern features are computed using the {\em mahotas} (\textsf{https://pypi.python.org/pypi/mahotas}) python library. The best classification performance is obtained using the SIFT features, but a $128$ feature length vector is obtained per image, and, in addition, computational space and time is needed to build internal structures ({\em e.g.} a {\em codebook}). The classification performance of the MFS for the bread crumb database is the highest among the algorithms studied. The MFS captures robust and useful information for classification in low dimensional features. These results also agree with results obtained in \cite{Bosch2011} for the classification of other food products.
 
 \begin{table}[h]
 \begin{center}
